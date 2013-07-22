@@ -1,0 +1,31 @@
+@import '../core/_vars.scss';
+@import '../core/_mixins.scss';
+
+#photoset_slides_hold {
+  &, #photoset_slides {
+    overflow: hidden;
+    position: relative;
+  }
+  figure { 
+    cursor: e-resize;
+    float: left;
+    position: relative;
+    width: 100%; 
+  }
+  figure.vertical  { text-align: center; }
+  figcaption { display: none }
+
+  @include breakpoint(l) {
+    max-width:720px;
+    figure.vertical img { max-width: 540px }
+  }
+}
+
+#photoset_info {
+  @include breakpoint(s) {
+    #caption_hold { font-size: 85%; }
+    .next span,
+    .prev span { display: none }
+  }
+}
+

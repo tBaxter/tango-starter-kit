@@ -1,0 +1,58 @@
+/*** Print styles ***/
+/*** Largely stolen from HTML5 Boilerplate ***/
+@page { margin: 1cm; }
+
+* { 
+  background: transparent !important; 
+  color: black !important;   // Black prints faster: h5bp.com/s 
+  text-shadow: none !important; 
+  filter: none !important; 
+} 
+
+body { padding-top: 0 !important; } // match header height
+
+header[role=banner] {
+  height: 40px;
+  position: relative !important;
+  h1 { 
+    max-width: 1.5in;
+    float: left;
+  }
+  h2 { display: block }
+  nav, #menu-trigger { display: none }
+}
+
+div[role="main"] {
+  width: 100%;
+}
+div[role="complementary"] {
+   display: none;
+}
+a, a:visited {
+  text-decoration: underline;
+  &[href]:after { content: " (" attr(href) ")"; }
+  
+  &[href^="javascript:"]:after, 
+  &[href^="#"]:after,
+  &[href="/"]:after { content: ""; }  /* Don't show javascript/internal links */
+
+}
+abbr[title]:after { content: " (" attr(title) ")"; }
+
+tr, img, pre, blockquote { page-break-inside: avoid; }
+
+pre, blockquote { border: 1px solid #999; }
+
+thead { display: table-header-group; } /* h5bp.com/t */
+
+img { max-width: 100% !important; }
+
+p, h2, h3 { orphans: 3; widows: 3; }
+h1, h2, h3 { page-break-after: avoid; }
+
+form { display: none }
+
+#comment-list {
+  article { page-break-inside: avoid; }
+  footer { display: none; }
+}

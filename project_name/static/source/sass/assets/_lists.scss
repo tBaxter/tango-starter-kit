@@ -1,0 +1,52 @@
+ul.fancy, ol.fancy {
+  li {margin-bottom:.25em; padding-bottom:.25em; border-bottom: 1px solid $base}
+}
+
+ul.fancy {
+  list-style:none; padding-left:0;
+}
+
+dl {
+  font-size:90%;
+  margin-bottom:1em;
+  &.specs {
+    max-width: 300px; 
+    font-size: 0.75rem;
+    line-height: 1.25em;
+  }
+
+  dt {float:left; display:block; font-weight:bold; clear:left; margin:0; 
+      padding:.5em 0 0;
+      color: $meta;
+      border-top:1px dotted $base_alt2; 
+      width:30%;
+    }
+  dd { 
+    padding:.5em $gutter_width 1em; 
+    margin-left: 30%;
+    min-height:2em; 
+    border-left:1px solid $base_alt2;
+  } 
+  dt+dd { border-top:1px dotted $base_alt2; }
+}
+
+section.list { // often used in conjunction with a grid (column) view in tabs
+  > ul {list-style:none; margin:0; }
+  > div, > ul > li {
+    display: table;
+    width: 100%;
+    
+    > * {display:table-cell; border-bottom: 1px solid $base_alt2; padding:.5em 0; min-height:60px;}
+    > *:first-child { 
+      h2 {margin:0; font-size:1em}
+    }
+    .third {width:33%;
+      .url-selector {width:100%;}
+    }
+  }
+  ul, dl {
+    figure {width:50px; max-height:50px; overflow:hidden}
+    dt, dd {font-size:85%; min-height:60px; line-height:1.25em}
+  }
+  
+}

@@ -1,0 +1,111 @@
+@import '../core/_vars.scss';
+@import '../core/_mixins.scss';
+
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'capo_fontello';
+  src: url("/static/fonts/capo_icons_5.eot?69466803");
+  src: url("/static/fonts/capo_icons_5.eot?69466803#iefix") format('embedded-opentype'), 
+       url("/static/fonts/capo_icons_5.woff?69466803") format('woff'), 
+       url("/static/fonts/capo_icons_5.ttf?69466803") format('truetype'), 
+       url("/static/fonts/capo_icons_5.svg?69466803#capo_fontello") format('svg');
+}
+@font-face {
+  font-family: 'emoticons';
+  src: url("/static/fonts/emoticons/emoticons.eot");
+  src: url("/static/fonts/emoticons/emoticons.eot?#iefix") format('embedded-opentype'),
+       url("/static/fonts/emoticons/emoticons.woff") format('woff'),
+       url("/static/fonts/emoticons/emoticons.ttf") format('truetype'),
+       url("/static/fonts/emoticons/emoticons.svg#emoticons") format('svg');
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before,
+[class^="emoticon-"]:before, [class*=" emoticon-"]:before {
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  padding-right: 0.33em;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: 'capo_fontello';
+}
+.icon-add:before,
+.icon-edit:before {color: $alert;}
+
+//.icon-picture:before { content: '🌄'; } /* '\1f304' */
+
+.icon-add:before    { content: '\2b'; } /* '+' */
+.icon-audio:before  { content: '🔊'}
+.icon-bold:before   { content: '\e0ce'; } /* '' */
+.icon-cal:before    { content: '📅'}
+.icon-check:before  { content: '☑'; font-size: 120%;}
+.icon-cog:before    { content: '⚙'; font-size: 120%;}
+.icon-delete:before { content: '❌'; }
+.icon-edit:before   { content: '✎'; }
+.icon-facebook:before { content: '\f09a'; } /* '' */
+.icon-grid:before   { content: '\e800'; } /* '' */
+.icon-heart-empty:before { content: '\2661'; } /* '♡' */
+.icon-italic:before      { content: '\e086'; } /* '' */
+.icon-list:before        { content: '\e782'; } /* '' */
+.icon-ul:before     { content: '\f0ca'; } /* '' */
+.icon-ol:before     { content: '\f0cb'; } /* '' */
+.icon-list-details:before  { content: '\e003'; } /* '' */
+.icon-map:before    { content: '📍'}
+.icon-menu:before   { content: '\2630'; } /* '☰' */
+.icon-menu-large:before { content: '\f0c9'; } /* '' */
+.icon-photo:before {content: '📷'}
+.icon-camera:before { content: '📷'; } /* '\1f4f7' */
+.icon-picture:before { content: '🌄'; } /* '\1f304' */
+.icon-comment:before { content: '\e718'; } // 💬
+.icon-quote:before { content: '\e718'; }   // 💬
+.icon-thumb-list:before { content: '\e801'; } /* '' */
+.icon-twitter:before      { content: '\f099'; } /* '' */
+.icon-user-1:before { content: '\e802'; } /* '' */
+.icon-lock:before { content: '\1f512'; }   // 🔒 
+.icon-unlock:before { content: '\1f513'; } // 🔓
+.icon-link:before { content: '\1f517'; }   // 🔗
+//.icon-video:before {content: '🎦'}
+.icon-video:before { content: '🎬'; } /* '\1f3ac' */
+.icon-sticky:before {content: '\1F4CC'; }  // 📌
+
+
+[class^="emoticon-"]:before,
+[class*=" emoticon-"]:before {
+  @include radius(1em);
+  background: lighten($accent, 15%);
+  color: $base;
+  font-family: 'emoticons';
+  font-size: 0.667em;
+  line-height: 1.5em;
+  min-width: 1.5em;
+  margin: 0 0.125em;
+  padding: 0.25em 0.33em;
+  text-align: center;
+  text-shadow: none;
+}
+
+.emoticon-happy:before { content: '\e800'; } /* '' */
+.emoticon-unhappy:before { content: '\e802'; } /* '' */
+.emoticon-sleep:before { content: '\e803'; } /* '' */
+.emoticon-thumbsup:before { content: '\e804'; } /* '' */
+.emoticon-devil:before { content: '\e805'; } /* '' */
+.emoticon-surprised:before { content: '\e806'; } /* '' */
+.emoticon-tongue:before { content: '\e807'; } /* '' */
+.emoticon-coffee:before { content: '\e808'; } /* '' */
+.emoticon-cool:before { content: '\e809'; } /* '' */
+.emoticon-sunglasses:before { content: '\e809'; } /* '' */
+.emoticon-displeased:before { content: '\e80a'; } /* '' */
+.emoticon-beer:before { content: '\e80b'; } /* '' */
+.emoticon-grin:before { content: '\e80c'; } /* '' */
+.emoticon-angry:before { content: '\e80d'; } /* '' */
+.emoticon-saint:before { content: '\e80e'; } /* '' */
+.emoticon-cry:before { content: '\e80f'; } /* '' */
+.emoticon-shoot:before { content: '\e810'; } /* '' */
+.emoticon-laugh:before { content: '\e812'; } /* '' */
+.emoticon-wink2:before { content: '\e813'; } /* '' */

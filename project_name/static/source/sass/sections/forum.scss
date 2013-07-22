@@ -1,0 +1,236 @@
+@import "../core/_vars.scss";
+@import "../core/_mixins.scss";
+@import "../assets/_sideheads.scss";
+
+#forum_categories,
+#forum_categories * {position:relative;}
+
+#forum_categories { 
+  section {clear:both;}
+  h1 {
+    @include sideheds;
+
+    font-size:250%;
+    opacity:.3
+  }
+  dl {margin-bottom:3em; margin-top:2em;
+    &:after  {
+      display: block;
+      margin-bottom:4em;
+      clear:both;
+      content: '';
+    }
+  }
+  dl > * {display:block; }
+  dt { font-weight:bold; width:42%; margin:0; border-bottom-style:solid; padding-right:1%}
+  dd { padding:0; }
+  dd.desc {width:42%; float:left; margin:.3em 0 -100% -.5em; 
+    clear:left; border:0; text-align:right; line-height:1.25em;
+    font-size:70%;
+  }
+  dd.recent {
+    top:-.5em; 
+    margin: 0 0 1em 42%;
+    width:57%; 
+    @include radius(.5em);
+    -webkit-transition:all .2s ease-in;
+  }
+  dd ul { margin:0; overflow:hidden; font-size:80%; padding:0;
+    li {list-style:none; padding:0;    
+      a {
+        -webkit-transition:all .2s ease-in;
+        padding: 1px 10px;
+        position: relative;
+        @include radius(.5em);
+        line-height:24px;
+        display:block;
+        color: $meta;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+        text-shadow:none;
+      }
+       .recent:hover {background: rgba(255,255,255,.1);}
+    }
+  } 
+}
+
+
+/* Topic Lists */
+//#topics #main h1 {display:inline}
+//#topics #main h1.xhr_pagination {display:block}
+#topic_list {
+  width:100%;
+  @include breakpoint(m) { display:table; };
+  time { display:inline }
+ 
+  article {
+    .toxic-message {font-style: normal; display:none }
+    @include breakpoint(m) { display:table-row; }
+    
+    section {
+      @include breakpoint(m) { 
+        display: table-cell; 
+        vertical-align:top; 
+        padding-bottom:.75em;
+        border-bottom:1px solid $base_alt2
+      }
+      time {font-size:100%; white-space: nowrap}
+      small {padding: 0 1em .25em 0}
+      > p {
+        margin:0 !important; 
+        font-size:70%; 
+        @include breakpoint(xs) { display:none }
+      }
+    }
+
+    section.t { // this is the topic (first) section
+      h1 {
+        font-size: 1.125em;
+        font-family: $base_font;
+        margin:0
+      }
+      @include breakpoint(m) {
+        border-bottom:1px solid $base_alt2;
+      }
+    } 
+
+    section.last {
+      text-align: right; 
+      border-bottom:1px solid $base_alt2;
+       @include breakpoint(m) {
+        p { clear:right }
+      }
+
+      .button-bar.divided {
+        margin: 0;
+        white-space: nowrap;
+        .new {
+          font-size: 70%; 
+          line-height:1.875em
+        }
+      }
+    }
+
+    &.toxic {
+      .toxic-message {display: inline }
+      section.t h1:before {content: '☢'}
+    }
+  }
+  article+article > section {
+    @include breakpoint(m) {
+      padding-top: .75em
+    }
+  }
+
+  .post-admin { display:none;
+    a, & img { width:16px; display:inline; padding:0 2px}  
+  }
+}
+
+// I believe everything in here is deprecated
+/* POST LIST 
+#posts { 
+  #comment-list {
+    #reply {
+      width: 100%;
+      float: none;
+
+      textarea { width: 100% }
+    } 
+
+    .bad-post {
+      .avatar, .post, .postcontrols, .button {display:none}
+      .bad-post-message {cursor:pointer}  
+    }
+    .post {
+      object, embed {
+        width:100%;
+        max-width:480px
+      }
+    }
+  }
+  ul.sociallinks {
+    clear: both;
+    height: auto;
+    float: right;
+    width: 20%;
+
+    li {
+      float: none;
+      width: 100%;
+      min-height: 48px;
+      line-height: 1.25em
+    }
+  }
+  .button.add_topic {
+    @include radius(15px);
+    margin-top: -0.75em;
+    margin-right: -1%;
+    line-height: 1.25em;
+    &:hover {
+      text-shadow: none !important;
+    }
+  }
+  #reply {
+    width: 78%;
+    float: left; 
+    .submithold {text-align: right }
+  }
+}
+*/
+
+#forum_search {
+  display:none; 
+}
+
+
+
+@media (min-width: 700px) {
+  #forum_categories h1 {
+    clear:both;
+  }
+}
+
+@media (max-width: 1024px) {
+  #forum_categories dl {
+    margin-bottom:4em;
+    margin-left:1%;
+    dt {border-width:0; width:100%; text-align:left; padding-bottom:0}
+    dl a:hover {background:#914b07; color:#fff} 
+    dd.desc {float:none; width:90%; text-align:left; padding:0 0 4px 7px; font-size:95%; border-bottom:1px solid #333; margin:0 2% 10px}
+    dd.recent {display:none}
+  }
+  #posts ul.sociallinks {
+    float:none; width:100%; 
+    li {float:left; width:25%; min-height:36px; font-size:75%}
+  }
+  #reply {width:100%; float:none; clear:left} 
+}
+
+
+@media (max-width: 700px) {
+  #forum_categories {margin-left:1.6em;
+    h1 {left:-2.8em}
+    dl {
+      dt {line-height:1.25em}
+      dd.desc {padding-left:0; margin-left:0}
+    }
+  }
+  #postlist {
+    h4 {padding-left:0}
+    .post {margin-left:60px;
+      img.uploaded {max-width:100%}
+    }
+    ol {
+      address { line-height:1em; 
+      a[rel=author] { font-size:14px}
+      }
+    }
+  }
+  #posts {
+    ul.sociallinks {
+      li {width:50%;}
+    }
+  }
+}

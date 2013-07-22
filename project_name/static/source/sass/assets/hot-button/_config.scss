@@ -1,0 +1,61 @@
+@import '_vars.scss';
+
+/****** Settings & Configuration ************/
+
+// Set the global parameters for your button.
+// Values shown are defaults.
+
+/********************************************/
+
+// Should buttons be inset in page.
+// $use-inset: true;
+
+// Should buttons have a drop shadow.   
+// $use-shadow: true;
+
+// Should buttons use a gradient or not.
+// $use-gradient: true;           
+
+// Should inset buttons highlight the background when active.
+// $highlight-active-inset: true; 
+
+// Base button background color.
+// It can be any color, an existing SASS variable, or transparent.
+// Transparent can lead to unpredictable results.
+// $button-base: #ddd;
+
+// default text color.
+// $button-text: #555;
+
+// Button font size. This will typically be between 1 and 1.5em
+// Note: font size determines overall size mathematically.
+// $button-font-size: 1.1em; 
+
+// Hover and active colors. Used for text and border.
+// $button-hover: #333;
+// $button-active: #d60;
+
+// Default radius creates round-ish buttons.
+// $button-radius: $button-font-size;
+// $button-radius: 20px;
+
+// Button margin gives the buttons some breathing room.
+// Particularly important if you're using inset buttons.
+// $button-margin: $button-font-size/2;
+
+// button inset determines the space around the button when using the inset effect.
+// $button-inset: $button-font-size/3;
+
+// Sub-button background and color
+// $sub-button-background: lighten($button-base, 15%);
+// $sub-button-color: $button-base;
+
+// Button highlight color. Used for depth effects.
+// Default is 30% lighter than the button base color.
+// Or 40% transparent white, if using a transparent button.
+// $button-highlight: lighten($button-base, 30%)
+
+// Button lowlight color (the opposite of highlight.
+// $button-lowlight: darken($button-base, 50%)
+
+/********** END VARIABLES *******************/

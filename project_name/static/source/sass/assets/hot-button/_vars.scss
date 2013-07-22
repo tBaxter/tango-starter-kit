@@ -1,0 +1,39 @@
+// Global settings
+$use-inset: true !default;
+$use-shadow: true !default;
+$use-gradient: true !default; 
+$highlight-active-inset: true !default;
+
+// Base button background color. 
+$button-base: #ddd !default;
+
+// default text color.
+$button-text: #666 !default;
+
+$button-font-size: 1.1em !default;
+
+// Active color. Used for text and border.
+$button-hover: #333 !default;
+$button-active: #d60 !default;
+
+$button-radius: $button-font-size !default;
+
+$button-margin: $button-font-size/2 !default;
+
+// Determines the space around the button when using the inset effect.
+$button-inset: $button-font-size/3 !default;
+
+// Sub-button background and color
+$sub-button-background: darken($button-base, 20%) !default;
+$sub-button-text: darken($button-text, 20%) !default;
+
+// button highlight and lowlight colors
+$button-highlight: rgba(255,255,255, .5) !default;
+@if $button-base != transparent {
+  $button-highlight: lighten($button-base, 30%);
+}
+
+$button-lowlight: rgba(0,0,0, .1) !default;
+@if $button-base != transparent {
+  $button-lowlight: darken($button-base, 50%);
+}

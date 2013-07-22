@@ -1,0 +1,227 @@
+//@import '../core/_vars.scss';
+//@import '../core/_mixins.scss';
+
+$button-base     : $base_alt; // Base button background color. 
+$button-text     : $inverse_alt;
+$button-hover    : $inverse_alt;
+$button-active   : lighten($button-text, 20%);
+
+$button_depth    : 0;    // Depth of button in px. Set to 0 for flat buttons.
+$button_softness : 3px;    // typically 0-4 with 0 being hard buttons.
+$use_gradient    : true;   // Create gradient on buttons.
+$use-inset       : true;   // create embossed effect around button
+
+//$accent          : #d56312;  // accent color.
+$accent_border   : $accent;  // set to 0 or false for none.
+$accent_border   : 0;  // set to 0 or false for none.
+//$accent_text     : #df0;     // set to 0 or false for none.
+$highlight-active: true;     // creates 'lit-up' effect around active button
+
+$use_shadows: true !default;
+
+$button-font-size: 1rem !default;
+//$button-radius: $button-font-size;
+$button-radius: 4px;
+
+$button-margin: $button-font-size/2 !default;
+
+// Determines the space around the button when using the inset effect.
+$button-inset: $button-font-size/3 !default;
+
+// Sub-button background and color
+$sub-button-background: darken($button-base, 20%) !default;
+$sub-button-text: darken($button-text, 20%) !default;
+
+// button highlight and lowlight colors
+$button-highlight: rgba(255,255,255, .5) !default;
+@if $button-base != transparent {
+  $button-highlight: lighten($button-base, 30%);
+}
+
+$button-lowlight: rgba(0,0,0, .1) !default;
+@if $button-base != transparent {
+  $button-lowlight: darken($button-base, 50%);
+}
+
+@mixin button() {
+  position: relative;
+  font-size: $button-font-size;
+  text-align:center;
+  //text-shadow: 0 1px 1px $button-highlight;
+  margin: $button-margin;
+  padding: 0 .5em 1px;
+  //height:           $button-font-size * 2;
+  line-height:      $button-font-size * 2;
+  border-radius:    $button-radius;
+  background-color: $button-base;
+  
+  &, a {
+    text-decoration: none; 
+    color: $button-text;
+    min-width: $button-font-size * 2;
+    display: inline-block;
+    &:focus { outline: none; }
+  }
+
+  @if $use_gradient {
+    @include gradient($button-base); 
+     border:1px solid darken($button-base, 5%);
+  } @else {
+      border:1px solid lighten($button-base, 4%);
+  }
+  @if $accent_border {
+    border:1px solid $accent_border
+  }
+
+  @if $button_softness == 0 { // hard-edged buttons
+    //box-shadow: inset 0px $button_softness $button_depth darken($button-highlight, 5%),  0px $button_softness $button_depth rgba(0,0,0, .4);
+    box-shadow: 
+      inset 0px $button_depth/3 0 darken($button-highlight, 5%),
+            0px $button_depth 0 darken($button-base, 5%),
+            0px $button_depth+1 0 darken($button-base, 2%);
+  } @else {  // soft edged
+    box-shadow: inset 0px $button_depth $button_softness darken($button-highlight, 5%),  0px $button_depth $button_softness rgba(0,0,0, .4);
+    //box-shadow: inset 0px $button_depth 3px darken($button-highlight, 5%), 0px $button_softness $button_depth rgba(0,0,0, .4);
+
+  }
+  
+  @if $use_shadows == false {
+    border:1px solid lighten($button-text, 30%)
+  }
+
+  @if $use-inset {
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -$button-inset;
+      left: -$button-inset;
+      bottom: -$button-inset;
+      right: -$button-inset;
+      z-index: -1;
+      border-radius: $button-radius * 1.25;
+      border-bottom: 1px solid rgba(255,255,255,.15);
+      border-top: 1px solid rgba(0,0,0,.05);
+      box-shadow: inset 0px .25em 1em rgba(0,0,0,.1);
+    }
+    &:active:after {
+      //border:1px solid $button-active; 
+      @if $highlight-active == true {
+        @include radius_gradient(lighten($accent, 30%));}
+      
+      }
+
+  }
+
+  // Thinner buttons
+  &.thinline {
+    font-size: $button-font-size * .8;
+    line-height: $button-font-size * 1.5;
+  }
+  
+  // Text + icon
+  &.icon-text {padding: 0 1em }
+  &.icon-text:before {padding-right:.5em;}
+
+  // sub-buttons
+  .sub-button {
+    border-radius: $button-font-size; 
+    border-top:1px solid darken($button-base, 20);
+    border-bottom:1px solid lighten($button-base, 20);
+    background: $sub-button-background;
+    color: $sub-button-text;
+    font-size:  $button-font-size * .80;
+    line-height: $button-font-size * 1.25;
+    position:relative;
+    top: -$button-font-size * .125;
+    margin-right:2px;
+    padding: 0 $button-font-size/2;
+    min-width: $button-font-size;
+
+    &:first-child {margin-left: $button-font-size;}
+    &:hover {background: $button-active; color: $button-highlight}
+  }
+  // Has sub-navigation with trigger
+  &.sub-nav {
+    min-width:10em;
+    //height:auto;
+    text-align: left;
+    li {list-style:none; margin:0; padding: inherit .5em;}
+    ul {display:none; 
+      font-size:$button-font-size *.75;
+      line-height: $button-font-size * 1.5;
+      border-top: 1px solid darken($button-base, 10%);
+    }
+    .divide-left {float:right}
+    .divide-right {float:left}
+    &:hover {
+      ul {display:block}
+    }
+  }
+
+  // uses divider
+  & .divide-left, & .divide-right {display:inline-block;}
+  & .divide-left {
+    border-left: 1px solid darken($button-base, 10%); 
+    padding-left: $button-font-size/2;
+    margin-left: $button-font-size/4;
+    float:right;
+  }
+  & .divide-right {
+    border-right: 1px solid darken($button-base, 10%); 
+    padding-right: $button-font-size/2;
+    margin-right: $button-font-size/2;
+    float:left;
+  }
+}
+
+.button-bar {
+  padding:0;
+
+  &.divided {
+    padding-right:0;
+    a {
+      margin:1px 0;
+      font-size:95%;
+      border-left: 1px solid darken($button-base, 10%); 
+      padding: 0 $button-font-size/2;
+    }
+    *:first-child {border-left:0; padding-left:$button-font-size/2}
+    *:last-child {padding-right: $button-font-size/2 }
+  }
+}
+
+
+.button, button, input[type="submit"], .button-bar {
+  @include button();
+}
+
+.button, button, input[type="submit"], .button-bar > a {
+  &:active {
+    @if $button_depth == 0 {
+      box-shadow: inset 0px -1px $button_depth/2 darken($button-highlight, 5%);
+    } else {
+      box-shadow: inset 0px 1px $button_depth/2 darken($button-highlight, 5%), 0px 1px $button_depth/2 rgba(0,0,0, .4);
+    }
+    /*@if $use_shadows == false {
+      background-color: $button-lowlight
+    }*/
+    @if $use_gradient {
+      @include gradient(darken($button-base, 5%)); 
+    }
+  }
+  &:hover {color: $button-active;}
+}
+
+.button-bar > a:active {
+   @if $button_depth == 0 {
+      box-shadow: inset 0px -1px $button_depth/2 darken($button-highlight, 5%);
+    } else {
+      box-shadow: inset 0px 1px $button_depth/2 darken($button-highlight, 5%), 0px 1px $button_depth/2 rgba(0,0,0, .4);
+    }
+
+   @if $use_gradient {
+      @include gradient(darken($button-base, 10%)); 
+    }
+
+}
