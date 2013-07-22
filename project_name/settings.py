@@ -54,7 +54,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'tango_admin',
+    #'tango_admin',
     'tango_capo',
     'tango_shared',
     'articles',
@@ -86,7 +86,7 @@ WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'tango_shared.test_db',          # Or path to database file if using sqlite3.
+        'NAME': 'test_db',          # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
