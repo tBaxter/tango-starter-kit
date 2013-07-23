@@ -10,14 +10,14 @@ https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from tango_shared.settings import *
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_DIR = os.path.dirname(os.path.realpath(__file__))
 WEBAPP_DIR  = os.path.abspath(os.path.join(PROJECT_DIR, os.path.pardir))
+PARENT_DIR  = os.path.abspath(os.path.join(WEBAPP_DIR, os.path.pardir))
 
 PROJECT_NAME = '{{ project_name }}'
-
-from tango_shared.settings import *
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/{{ docs_version }}/howto/deployment/checklist/
@@ -109,7 +109,7 @@ USE_TZ = True
 MEDIA_ROOT = '%s/media/%s/' % (WEBAPP_DIR, PROJECT_NAME)
 
 # https://docs.djangoproject.com/en/{{ docs_version }}/howto/static-files/
-STATIC_ROOT = '%s/static/%s/' % (WEBAPP_DIR, PROJECT_NAME)
+STATIC_ROOT = '%s/static/%s/' % (PARENT_DIR, PROJECT_NAME)
 
 TEMPLATE_DIRS = (
     PROJECT_DIR + '/templates'
