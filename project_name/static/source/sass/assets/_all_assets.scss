@@ -4,7 +4,7 @@
 // Example: <span class="button"><span class='navicon'>≡≡</span></span>
 .navicon { 
   font-size: 1.5rem; 
-  letter-spacing: -.33em; 
+  letter-spacing: -0.33em; 
   display: block; 
   width: 3em; 
   color: $base;
@@ -33,7 +33,8 @@
 @import '_forms.scss';       // basic form styling
 @import '_icons.scss';       // auto-inserted icons
 @import '_sideheads.scss';   // vertical headlines
-@import '_button.scss';   // vertical headlines
+@import '_button.scss';      // buttons
+@import '../core/_typography.scss';
 
 hr.fancy {border:0; @include fancy_rule;}
 
@@ -41,23 +42,16 @@ hr.fancy {border:0; @include fancy_rule;}
   position:relative; 
   z-index:10;
   padding:2em 0 0;
-  h1 {font-size:2.5em}
 }
 
 // A kicker sits above a major heading and provies as a section name, 
 // author name or other short additional information.
 .kicker {
-  margin-bottom:.25em; 
-  font-size:65%; 
-  text-transform:uppercase; 
-  line-height:1em; 
-  font-weight:bold;
-  display:block;
-  color:$inverse_alt;
+  margin-bottom: $thinMargin; 
+  color: $inverse_alt;
   
   a {color:$inverse_alt}
   a:hover {color:$accent}
-  &+h1 {margin-top:0}
 }
 
 
@@ -68,21 +62,21 @@ hr.fancy {border:0; @include fancy_rule;}
 }
 
 blockquote, q {
+  @extend .sub-text;
+  @extend .margin-top-bottom;
+  @include clearfix();
+
+  padding-left: $gutter;
   color: $meta; 
   display: block;
-  font-size: 85%;  
-  padding: .5em 0 .5em 2em; 
-  margin-bottom: 1em;
   border-left: 4px solid $base_alt2; 
-  @include clearfix();
   footer {font-style: italic;}
   img {max-width:30% !important}
 }
 
 .content-body {
-  p {font-size:105%}
 
-  .datebox {margin-right:1em}
+  .datebox {margin-right: $gutter; }
 
   @include breakpoint(s) {
     width:365px; float:left; 
@@ -102,32 +96,35 @@ blockquote, q {
   
   #top_assets { 
     position:relative; z-index:100;
-    border-bottom:2px solid $base_alt; 
-    padding-bottom:.25em;
+    border-bottom: 2px solid $base_alt; 
+    @extend .pad-bottom;
 
-    ul.sociallinks {margin: 0; border-bottom:0}
+    ul.sociallinks { margin: 0; border-bottom:0 }
 
     @include breakpoint(s) {
       width: 230px; 
       float: right; 
-      margin: 0 -160px 1em $gutter_width; 
+      margin: 0 -160px $defaultMargin $gutter; 
       blockquote {display:block;}
     }
     @include breakpoint(m) {
-      width:380px; margin-right:-160px;
+      width:380px; 
+      margin-right: -160px;
     }
     @include breakpoint(l) {
       width:460px;
     }
     @include breakpoint(xl) {
-      width:540px; margin-right:-240px;
+      width:540px; 
+      margin-right: -240px;
     }
 
   .tabbed > ul {
-    text-align:right; 
-    font-size:80%; 
-    list-style:none; 
-    margin:.25em 0 0; 
+    @extend .sub-text;
+
+    text-align: right; 
+    list-style: none; 
+    margin: 0; 
     background:transparent;
 
     > li {background:transparent; padding:0;
@@ -137,7 +134,7 @@ blockquote, q {
     > li.active {border:0;
       a {background:$accent}
     }
-    .preview {position:absolute; width:6em; top:-65px; margin-left:-4em; 
+    .preview {position:absolute; width:6em; top:-65px; margin-left: -4em; 
       display:none; min-height:50px; background:$accent; color:$base; line-height:50px; 
       text-align:center; text-shadow:none; font-weight:bold; 
       @include radius(3px); 

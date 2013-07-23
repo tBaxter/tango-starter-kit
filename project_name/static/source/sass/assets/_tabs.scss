@@ -3,14 +3,14 @@
 // TABS
 
 @mixin tab_styles() {
-  font-size:90%; 
+  @extend .sub-text;
+  @extend .larger-line-height; 
   width:auto; 
   float:none; 
   min-height: 2em; 
-  line-height: 2em;; 
   padding:0; 
   margin: 0; 
-  clear:both;
+  clear: both;
   border-bottom:1px solid $base_alt2;
   
   > li {

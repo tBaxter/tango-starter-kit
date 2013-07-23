@@ -1,4 +1,5 @@
 @mixin sideheds() {
+  @extend .super-text;
   -webkit-transform: rotate(-90deg); 
   -moz-transform: rotate(-90deg);
   position:absolute; 
@@ -8,7 +9,6 @@
   height:1em;
   width:5em;
   white-space:nowrap;
-  font-size:2.5em;
   cursor:pointer;
   text-align:right;
   margin:0 0 80px;

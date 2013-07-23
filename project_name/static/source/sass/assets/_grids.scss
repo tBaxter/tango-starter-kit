@@ -18,7 +18,7 @@
     position: relative; 
     display: inline-block; 
     vertical-align: top; 
-    padding-right: $gutter_width;
+    padding-right: $gutter;
     margin-right: -4px;
     // Hack crappy old IEs for inline-block
     *zoom: 1;
@@ -32,7 +32,7 @@
   }
   &.divided > * {
     border-left: 1px solid $base_alt2;
-    padding-left: $gutter_width;
+    padding-left: $gutter;
 
     &:first-child { // completely naive. Re-do
       border-left: 0;
@@ -60,7 +60,7 @@
     &:nth-child(odd) { width:64.8%; }
     &:nth-child(even) {
       width: 35.19%; 
-      @include breakpoint(l) { padding-left: $gutter_width * 2 }
+      @include breakpoint(l) { padding-left: $gutter * 2 }
     }
   }
   &.phi.reverse > * {
@@ -69,25 +69,22 @@
       width: 61.8%; 
       @include breakpoint(l) {
         padding-left: 0;
-        padding-right: $gutter_width * 2
+        padding-right: $gutter * 2
       }
     }
   }
 }
 
 .grid { // use with columned
-  font-size: 90%;
-  h2 {
-    font-size:1em;
-    margin:0
-  }
+  @extend .sub-text;
+  
   figure { 
     width: 32%; 
-    margin-bottom: 1em 
+    margin-bottom: $defaultMargin 
   }
   small.meta { display: block; }
 
   > * {
-    padding: 0 $gutter_width 1.5em 0;
+    padding: 0 $gutter $defaultMargin  0;
   }
 }

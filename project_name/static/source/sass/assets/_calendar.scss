@@ -23,7 +23,7 @@
 #small-calendar {
   .events, .longDays, .calEventDesc  { display: none }
   table { 
-    font-size:85%;
+    font-size: 85%; 
     td.has_events {
       .calDayLabel { background: $base_alt2; }
       .events { position:relative; }

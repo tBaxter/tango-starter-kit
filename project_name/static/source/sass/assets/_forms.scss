@@ -27,7 +27,6 @@
   }
   label {
     color: $meta; 
-    font-size: 0.75em; 
     font-weight: bold; 
     padding: 10px;
 
@@ -62,8 +61,8 @@
     }
 
     &.required label {
+      @extend .sub-text;
       color: $accent;
-      font-size: 0.85em
     }
   }
   > ul {
@@ -82,9 +81,8 @@
   }
 
   .helptext {
+    @extend .small-text;
     color: $meta; 
-    font-size: 0.75em; 
-    line-height: 1.25em;
     display: block; 
     margin-left: 31%
   }

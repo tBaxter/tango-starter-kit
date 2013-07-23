@@ -3,6 +3,7 @@
 
 // ------------ IMPORTS ---------------//
 @import '_reset.scss';                       // defines reset and core styles
+@import '_typography.scss';                  // typography
 @import '_mixins.scss';                      // defines mixins
 @import '_layout.scss';                      // layouts
 @import '../assets/_all_assets.scss';        // pull in asset helpers
@@ -109,7 +110,7 @@ header[role=banner] {
   
   nav {
     position: relative; 
-    font-size: 95%;
+    @extend .sub-text;
     @include breakpoint(s) { margin-left: 31%; }
   }
 }
@@ -122,8 +123,8 @@ header[role=banner] {
   figure {
     img { border: 1px solid $accent_alt; }
     figcaption {
-      font-size: 80%;
-      padding-bottom: .5em;
+      @extend .sub-text;
+      @extend .pad-bottom;
       color: $inverse_alt;
       font-weight: normal;
       .author { 
@@ -149,20 +150,14 @@ header[role=banner],
 footer[role=contentinfo] {
   clear:both; 
   nav {
-    font-size: 90%;
-    ul {
-      > li { 
-        padding: 0.25em 1.33em 0.125em 0;
-        font-weight: bold;
-        ul { 
-          margin-bottom: 1em;
-          font-weight: normal;
-          font-size: 95%;
-          li { 
-            line-height: 1.25em; 
-            padding: 0.25em 0; 
-            font-weight: normal
-          }
+    ul { margin: 0 }
+    [role=menu] > li {
+      font-weight: bold;
+      @extend .margin-bottom;
+      ul { 
+        li { 
+          @extend .sub-text;
+          font-weight: normal
         }
       }
     }
@@ -185,14 +180,14 @@ footer[role=contentinfo] {
   select { width:120px; }
   #q {
     @include radius(3px);
+    @extend .sub-text;
     border: 1px solid $inverse_alt;
     padding: 3px;
     margin-right: -8px;
     width: 140px;
-    font-size: 13px;
   }
   span {
-    font-size: 10px; 
+    @extend .small-text;
     color: $inverse_alt
   }
 }
@@ -201,8 +196,8 @@ footer[role=contentinfo] {
 
 /************************ COMMON CLASSES AND ELEMENTS ********************/
 time {
+  @extend .sub-text;
   color: $inverse_alt; 
-  font-size: 80%; 
   display: block;
 }
 
@@ -211,12 +206,12 @@ time {
 // for content that needs to be 'broken out' and given more prominence
 .breakout {
   @include radius(.5em);
+  @extend .breakout-text;
   display: block;
   border: 1px solid lighten($base_alt2, 2%);
   background: $base_alt2;
   padding: 1em;
   margin: .5em 0;
-  font-size: 125%;
   text-shadow: 0 1px 2px rgba(0,0,0,.8); 
 }
 
@@ -229,12 +224,13 @@ time {
 // for number counts on objects, like recently updated
 .counter { 
   @include radius(1.5em);
+  @extend .small-text;
+
   background: rgba($base, 0.9);
   border: 1px solid $base_alt2;
   line-height: 1.5em;
   padding: .25em;
   text-align: center;
-  font-size: 70%;
   display: inline-block;
   min-width: 2em;
   font-weight: normal;
@@ -251,17 +247,18 @@ a .avatar:hover {border-color: $accent}
 
 
 .errorlist {
-   background: $error;
+  @extend .sub-text;
+  background: $error;
    list-style: none; 
    padding: .25em 1em; 
    margin: 0; 
    font-weight: bold; 
-   font-size: 85%;
+   
 }
 
 .messages {margin:0 0 1em; padding:0; list-style:none;
   > li, .message {
-    font-size: 1.25em;
+    @extend .breakout-text;
     border: 1px solid; 
     padding: .25em 1em;
     background: $inverse;
@@ -292,7 +289,7 @@ a .avatar:hover {border-color: $accent}
 }
 
 .signature {
-  font-size: 80%;
+  @extend .small-text;
   border-bottom: 1px solid $base_alt2;
   text-align: right;
 }
@@ -316,7 +313,7 @@ a .avatar:hover {border-color: $accent}
     @include breakpoint(l) {
       width: 450px;
       float: left;
-      p { font-size: 105% }
+      p { @extend .breakout-text; }
     }
     @include breakpoint(xl) {
       width: 700px;
@@ -326,13 +323,13 @@ a .avatar:hover {border-color: $accent}
       border-top: 2px solid $base_alt;
       margin-top: 1em;
       h1, p { font-weight:normal }
-      h1 { font-size: 1.5em }
-      p { font-size: 100% }
+      h1 { @extend .small-header }
+      p { @extend .body-text }
     }
 
   #more_featured {
-    h1 { font-size: 1.25em }
-    p { font-size:90%; }
+    h1 { @extend .medium-header }
+    p { @extend .sub-text }
     img { width:110px }
 
     @include breakpoint(s) {
@@ -358,7 +355,7 @@ a .avatar:hover {border-color: $accent}
   }
 }
 #more_articles {
-    h1 { font-size: 1.5em }
+    h1 { @extend .medium-header }
     figure { width: 32% }
   }
 
@@ -366,22 +363,19 @@ a .avatar:hover {border-color: $accent}
 /**************************** STORY PAGES  *********************************/
 p.vcard { line-height: 1em }
 p.author {
+  @extend .sub-text;
   font-weight: bold;
-  font-size: 80%;
   margin: 0; 
   text-transform: uppercase
 }
 p.source-org {
+  @extend .small-text;
   font-family: $alt_font; 
-  font-size: 75%;
 }
 
 h2.overline {
-  font-size: 1.33em;
+  @extend .medium-header;
   margin-bottom: 0;
-}
-h2.overline + h1 {
-  margin-top:.125em;
 }
 
 .sociallinks {
@@ -395,7 +389,7 @@ h2.overline + h1 {
     padding: 0 0.5em;
     margin: 0;
     font-size: 70%;
-    width:24%;
+    width: 24%;
   }
   li#social_fb { width:48% }
   img {
@@ -422,7 +416,7 @@ h2.overline + h1 {
 
 .story_detail {
   .dateline {
-    font-size: .9em;
+    @extend .sub-text;
     font-weight: bold;
     margin-top: 0.45em;
     &:after {
@@ -434,15 +428,13 @@ h2.overline + h1 {
   }
   object, video { width:100%; }
   .shirttail {
+    @extend .small-text;
+    @extend .pad-top-bottom;
     color: $inverse_alt;
     border-top: 2px solid $base_alt;
     margin: 0;
-    padding: 0.25em 0; 
-    font-size: 0.8em;
   }
 }
-
-
 
 
 /******************** GALLERIES **********************/
@@ -480,7 +472,7 @@ h2.overline + h1 {
     position:relative; 
     margin-bottom:2em;
 
-    header, footer {font-size:70%; }
+    header, footer { @extend .small-text }
     header {
       letter-spacing: 1px;
       padding-left: .5em; 
@@ -528,7 +520,7 @@ h2.overline + h1 {
       p {
         clear:right;
         @include breakpoint(xs) {
-          font-size: 1.125rem;
+          @extend .body-text;
         }
       }
 
@@ -592,8 +584,8 @@ h2.overline + h1 {
     position: relative;
     li {
       @include button();
+      @extend .small-text;
       margin: 0;
-      font-size: 0.65em;
       vertical-align: top; 
     
       &.markItUpSeparator, a { display: none }
@@ -609,9 +601,9 @@ h2.overline + h1 {
 .new { border-left: 4px solid $accent } // list items and such.
 a.new {                                 // actionable
   @include radius($default_radius);
+  @extend .small-text;
   display: inline-block; 
   background: $accent;
-  font-size: 80%;
   border: 1px inset $base_alt2;
   text-shadow: none;
   color: $inverse; 

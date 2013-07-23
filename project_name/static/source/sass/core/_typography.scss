@@ -1,0 +1,199 @@
+/*********************************************
+  Capo typography is defined by a handful
+  of variables which create a 10 px baseline grid
+  and size various typographic elements appropriately
+  to remain on that grid.
+
+  This file also defines variables that can be used
+  for consistent margins, padding and gutters:
+
+  - @gutter: for columns between content. 20px
+  - @halfGutter: for padding in boxes, etc. Half of gutter.
+  - @defaultMargin: For consistently setting top and bottom margins
+    while staying on the baseline grid. Note: you can use multiples
+    ( @defaultMargin * 2 );
+**********************************************/
+
+// baseline
+$baseline: 10px;
+$gutter: 20px;
+$halfGutter: $gutter/2;
+
+// top, bottom margins
+$thinMargin: $baseline;
+$defaultMargin: $baseline * 2;
+$wideMargin: $baseline * 4;
+
+html, button, input, select, textarea { font-family: $base_font }
+// Correct font-size not inheriting in all browsers
+button, input, select, textarea { font-size: 100%; }
+
+html { 
+  font-size: .875em; // 14px
+  -webkit-text-size-adjust: 100%; 
+      -ms-text-size-adjust: 100%; 
+}
+
+// Sizes are duplicated to support older browsers
+// that don't understand REMs. IE8, I'm looking at you.
+
+// Fine print and labels
+.small-text, small {
+  font-size: 12px;
+  line-height: 15px;
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+}
+// slightly less important than default body text.
+.sub-text {
+  font-size: 13px;
+  font-size: 0.9285rem;
+  line-height: 20px;
+  line-height: 1.428rem;
+}
+
+// default body size: 14px;
+.body-text, body {
+  font-size: 14px;
+  font-size: 1em;
+  line-height: 20px;
+  line-height: 1.428rem;
+  
+}
+// H4-style headers
+.x-small-header, h5, .breakout-text {
+  font-size: 16px;
+  font-size: 1.142857rem;
+}
+.larger-line-height {
+  line-height: 30px;
+  line-height: 2.1426rem;
+}
+.small-header, h4 {
+  font-size: 18px;
+  font-size: 1.2857rem;
+  @extend .larger-line-height;
+}
+
+// H3-style headers
+.medium-header, h3 {
+  font-size: 21px;
+  font-size: 1.2857rem;
+  @extend .larger-line-height;
+}
+
+// H2-style headers
+.large-header, h2 {
+  font-size: 24px;
+  font-size: 1.7142rem;
+  @extend .larger-line-height;
+}
+
+// H1-style headers
+.xl-header, h1 {
+  font-size: 32px;
+  line-height: 40px;
+  font-size: 2.2857rem;
+  line-height: 2.8571rem;
+}
+
+// Large call-out headlines
+.super-text {
+  font-size: 48px;
+  line-height: 60px;
+  font-size: 3.42857rem;
+  line-height: 4.2857rem;
+}
+
+// padding and margin helpers
+.margin-top { margin-top: $defaultMargin; }
+.margin-bottom { margin-bottom: $defaultMargin; }
+.margin-top-bottom { margin: $defaultMargin 0; }
+.margin-sides { margin: 0 $gutter; }
+.margin-all { margin: $gutter $defaultMargin; }
+
+.pad-top { padding-top: $baseline; }
+.pad-bottom { padding-bottom: $baseline; }
+.pad-top-bottom { padding: $baseline 0; }
+.pad-sides { padding: 0 $halfGutter; }
+.pad-all { padding: $baseline $halfGutter; }
+
+/*
+h1, h2, h3, h4 { font-family: 'OpenSansSemibold'; }
+
+
+
+.bold-text { font-family: 'OpenSansSemiBold'; }
+.unbold-text { font-family: 'OpenSansRegular'; }
+.light-text { font-family: 'OpenSansLight'; }
+
+b, strong {
+  .bold-text;
+}
+
+p + p,
+p + div,
+p + h2,
+p + h3 {
+    margin-top: @defaultMargin;
+}
+p + p.small-text {
+    margin: 0.875em 0 0.25em;
+}
+p + p.super-text { margin-top:0; }
+.sidebar-wrapper { font-size: .9em;}
+
+*/
+
+
+// Redeclare monospace font family: h5bp.com/j 
+// Improve readability of pre-formatted text in all browsers
+pre, code, kbd, samp { 
+  font-family: monospace, serif; 
+  _font-family: 'courier new', monospace; 
+  font-size: 1em; 
+}
+
+// Position subscript and superscript content without affecting line-height: h5bp.com/k
+sub, sup { 
+  @extend .small-text;
+  line-height: 0; 
+  position: relative; 
+  vertical-align: baseline; 
+}
+sup { top: -0.5em; }
+sub { bottom: -0.25em;}
+
+h1, h2, h3, h4, h5, h6, p, ol, ul { margin: 0 }
+h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+
+#content {
+  p, ol, ul { @extend .margin-bottom }
+  p+h2, p+h3 { margin-top: $wideMargin }
+}
+
+// typically (but not always) used as small.meta
+.meta { color: $meta }
+
+label {
+  @extend .pad-all;
+  @extend .sub-text;
+}
+
+.hero { 
+  @extend .small-header;
+  h1 { @extend .super-text; }
+  p { margin: $defaultMargin 0; }
+}
+
+// special headlines
+.kicker {
+  @extend .small-header;
+  text-transform: uppercase; 
+}
+
+// set sidebar smaller by default
+[role=complementary] { @extend .sub-text; }
+
+
+

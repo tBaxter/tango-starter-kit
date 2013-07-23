@@ -13,9 +13,7 @@ article, aside, details, figcaption, figure, footer, header, nav, section { disp
 audio, canvas, video { display: inline-block; }
 audio:not([controls]), [hidden] { display: none; }
 
-// Handle font-size and font size adjustments on device orientation change without disabling user zoom: h5bp.com/g
-html { font-size: 100%; -webkit-text-size-adjust: 100%; }
-body { margin: 0; font-size: 1.125rem; line-height: 1.75rem; }
+body { margin: 0; }
 
 // Focused/selected/active/hovered
 ::selection { text-shadow: none !important; }
@@ -26,13 +24,14 @@ a:hover, a:active { outline: 0; }
 //pre, code, kbd, samp { font-family: monospace, serif; font-size: 1em; }
 pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 
-q { quotes: none; display:block; font-size:85%; font-family:$alt_font; font-style: italic;
+q { 
+  @extend .sub-text;
+  quotes: none; 
+  display:block; font-family:$alt_font; font-style: italic;
   // &:before, &:after { font-size:3em; position:absolute; margin-top:-.25em; opacity:.5; font-style:normal}
   // &:before { content: "“"; margin-left:-.5em}
   // &:after { content: "”"; }
 }
-
-small, .small { font-size: 75%; line-height:1.25em }
 
 button, input, select, textarea { font-family: sans-serif; }
 a { text-decoration:none }
@@ -46,7 +45,7 @@ ins { background: #ff9; color: #000; text-decoration: none; }
 mark { background: #ff6; color: #000; font-style: italic; font-weight: bold; }
 address {font-style: normal }
 
-/////////////
+/*//////////
 // Basic Typography
 
 // Position subscript and superscript content without affecting line-height: h5bp.com/k
@@ -66,9 +65,7 @@ p+h3 { margin-top:1.5em }
 .meta { color:#777; }
 h2.meta {margin-bottom:0}
 h2.meta+* {margin-top:0}
-
-#content-side {font-size:90%}
-
+*/
 /* =============================================================================
    Lists
    ========================================================================== */
@@ -107,9 +104,9 @@ label { cursor: pointer; }
 legend { white-space: normal; }
 
 // Correct font-size not inheriting in all browsers
-// Define consistent vertical alignment display in all browsers
+/* Define consistent vertical alignment display in all browsers
 button, input, select, textarea { font-size: 100%; vertical-align: baseline; }
-
+*/
 /* Define line-height as normal to match FF3/4 (set using !important in the UA stylesheet) */
 button, input { line-height: normal; }
 

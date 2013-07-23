@@ -16,4 +16,11 @@ urlpatterns = patterns(
     url(r'^events/', include('happenings.urls')),
     url(r'^profiles/', include('user_profiles.urls')),
     url(r'^video/', include('video.urls')),
+
+    url(
+        regex='^examples/typography/$',
+        view=TemplateView.as_view(template_name='examples/typography.html'),
+        name='typography'
+    ),
+
 )
