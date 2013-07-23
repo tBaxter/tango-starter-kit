@@ -13,11 +13,12 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_DIR = os.path.dirname(os.path.realpath(__file__))
 WEBAPP_DIR  = os.path.abspath(os.path.join(PROJECT_DIR, os.path.pardir))
-PARENT_DIR  = os.path.abspath(os.path.join(WEBAPP_DIR, os.path.pardir))
 
 PROJECT_NAME = '{{ project_name }}'
 
 from tango_shared.settings import *
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/{{ docs_version }}/howto/deployment/checklist/
 
@@ -105,10 +106,10 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = PARENT_DIR + '%s/media/%s/' % (PARENT_DIR, PROJECT_NAME)
+MEDIA_ROOT = '%s/media/%s/' % (WEBAPP_DIR, PROJECT_NAME)
 
 # https://docs.djangoproject.com/en/{{ docs_version }}/howto/static-files/
-STATIC_ROOT = PARENT_DIR + '%s/static/%s/' % (PARENT_DIR, PROJECT_NAME)
+STATIC_ROOT = '%s/static/%s/' % (WEBAPP_DIR, PROJECT_NAME)
 
 TEMPLATE_DIRS = (
     PROJECT_DIR + '/templates'
