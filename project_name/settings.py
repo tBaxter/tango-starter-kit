@@ -105,11 +105,11 @@ USE_L10N = True
 USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/var/www/example.com/media/"
 MEDIA_ROOT = '%s/media/%s/' % (WEBAPP_DIR, PROJECT_NAME)
 
-# https://docs.djangoproject.com/en/{{ docs_version }}/howto/static-files/
+# https://docs.djangoproject.com/en/1.5/howto/static-files/
 STATIC_ROOT = '%s/static/%s/' % (PARENT_DIR, PROJECT_NAME)
+STATICFILES_DIRS = (PROJECT_DIR + "/static/",)
 
 TEMPLATE_DIRS = (
     PROJECT_DIR + '/templates'
