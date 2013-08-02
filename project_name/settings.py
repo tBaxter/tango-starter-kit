@@ -45,6 +45,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = (
+    'tango_shared',
     'django.contrib.admin',
     'django.contrib.admindocs',
     'django.contrib.auth',
@@ -55,18 +56,9 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'tango_shared',
-    'articles',
-    'autotagger',
-    'contact_manager',
-    'photos',
-    'happenings',
-    'user_profiles',
-    'video',
-    'typogrify',
-    'voting',
 )
+
+INSTALLED_APPS += TANGO_APPS
 
 ROOT_URLCONF = '{{ project_name }}.urls'
 
@@ -106,10 +98,10 @@ USE_L10N = True
 USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
-MEDIA_ROOT = '%s/media/%s/' % (WEBAPP_DIR, PROJECT_NAME)
+MEDIA_ROOT = '%s/media/%s/' % (PARENT_DIR, PROJECT_NAME)
 
 # https://docs.djangoproject.com/en/1.5/howto/static-files/
-STATIC_ROOT = '%s/static/%s/' % (PARENT_DIR, PROJECT_NAME)
+STATIC_ROOT = '%s/collected_static/%s/' % (PARENT_DIR, PROJECT_NAME)
 STATICFILES_DIRS = (PROJECT_DIR + "/static/",)
 
 TEMPLATE_DIRS = (

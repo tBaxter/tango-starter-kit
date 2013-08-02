@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.views.generic import TemplateView
@@ -22,5 +23,8 @@ urlpatterns = patterns(
         view=TemplateView.as_view(template_name='examples/typography.html'),
         name='typography'
     ),
-
 )
+
+if settings.DEBUG is True:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
