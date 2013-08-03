@@ -115,6 +115,22 @@ PAGINATE_BY = 25
 GOOGLE_ANALYTICS_ID = ''  # Google analytics GA code
 GMAP_KEY = ''  # Google Maps Key
 
+# if set to false, RESTRICT_CONTENT_TO_SITE will allow
+# sites/projects to share content.
+# If true, content will be limited to the current site.
+RESTRICT_CONTENT_TO_SITE = True
+
+# If set to true, additional fields news organizations
+# need will be added, including options to mark content as
+# opinion/editorial, dateline, and noting another source as
+# the origin of the content.
+NEWS_SOURCE = True
+
+# Comment moderation settings
+COMMENTS_CLOSE_AFTER = 30  # Number of days after publication until comments close.
+COMMENTS_MOD_AFTER = 15  # Number of days after publication until comments require moderation. 
+
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
