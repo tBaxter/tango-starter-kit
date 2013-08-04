@@ -15,10 +15,10 @@ $base_alt2    : #aaa !default;
 $inverse      : #111 !default;
 
 // lower contrast items. Default is dark gray.
-$inverse_alt  : lighten($inverse, 10%) !default;         
+$inverse_alt  : lighten($inverse, 10%) !default; 
 
-// accent color. Default is medium blue. 
-$accent       : #047bc1 !default;              
+// accent color. Default is orange. Deal with it. 
+$accent       : #d56312 !default;
 
 // alternate, darker accent color
 $accent_alt   : darken($accent, 10%) !default; 
@@ -35,10 +35,9 @@ $texture      : url(../../img/site/texture-overlay.png) !default;
 $base_font    : "Helvetica", "Calibri", "Lucida Sans Unicode", "Arial Unicode MS", Verdana, Arial, sans-serif !default;
 $alt_font     : Georgia, serif !default; 
 
-$gutter_width : 20px;
-
 $default_radius: 4px; // a default border radius, to help encourage consistency.
 
+// Default typography variables are set in typography.scss
 
 // Breakpoints
 $xl : 1600;

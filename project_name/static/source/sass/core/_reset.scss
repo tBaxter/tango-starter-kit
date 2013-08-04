@@ -56,10 +56,6 @@ sub { bottom: -0.25em;}
 h1 { font-size:2em; line-height:1em; margin:.25em 0; }
 h2 { font-size:1.5em; line-height:1.33em; margin:.45em 0 .45em }
 h3 { font-size:1.25em; margin:1em 0 .33em}
-p, ol, ul {margin: .25em 0 .75em}
-
-p+h2 { margin-top:1.3em }
-p+h3 { margin-top:1.5em }
 
 // typically (but not always) used as small.meta
 .meta { color:#777; }
@@ -165,7 +161,12 @@ img.right, figure.right {margin-left:1em}
 .left {float:left}
 img.left, figure.left {margin-right:1em}
 
-.ellipse{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width:100% }
+.ellipse{ 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  width:100% 
+}
 
 
 

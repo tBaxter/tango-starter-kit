@@ -6,19 +6,22 @@ div[role=main] {
   @include breakpoint(s) {width: 67%;} 
 }
 div[role=complementary] {
-  @include breakpoint(s) {width: 32.2%; padding-left: $gutter_width;} 
-  @include breakpoint(l) {padding-left: $gutter_width * 2} 
+  @include breakpoint(s) {
+    width: 32.2%;
+    padding-left: $gutter;
+  } 
+  @include breakpoint(l) { padding-left: $gutter * 2 } 
 }
  
 // with body class 'wide', only main content shown.
 .wide {
   div[role=main] {width:100%}
-  div[role=complementary] {display:none}
+  div[role=complementary] { display: none }
 }
  
 // split page in two equal halves
 .split {
-  div[role=main], div[role=complementary] {width:49.8%}
+  div[role=main], div[role=complementary] { width: 49.8% }
   div[role=complementary] {@extend .body-text}
 }
  
@@ -29,7 +32,7 @@ div[role=complementary] {
     @include breakpoint(s) {float:right;}
   }
   div[role=complementary] { 
-    @include breakpoint(s) {float:left; padding-left: 0; padding-right: $gutter_width} 
-    @include breakpoint(l) {padding-right: $gutter_width * 2}
+    @include breakpoint(s) {float:left; padding-left: 0; padding-right: $gutter} 
+    @include breakpoint(l) {padding-right: $gutter * 2}
   }
 }

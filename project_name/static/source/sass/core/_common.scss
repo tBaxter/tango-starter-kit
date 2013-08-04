@@ -89,8 +89,8 @@ header[role=banner] {
   .site-name { 
     color: $inverse; 
     text-shadow: 0 1px 2px rgba(0,0,0,.7); 
-    padding-right: $gutter_width;
-    @include breakpoint(xs) { padding-left: $gutter_width; }
+    padding-right: $gutter;
+    @include breakpoint(xs) { padding-left: $gutter; }
 
     a { color: $base }
     h1, h2 { margin: 0 }
@@ -103,14 +103,13 @@ header[role=banner] {
     font-weight: bold; 
     border: 1px inset $accent; 
     color: $base; 
-    margin-right: $gutter_width;
+    margin-right: $gutter;
     @include breakpoint(s) { padding: 0.5em auto; }
     &.activated { background: $accent_alt }
   }
   
   nav {
     position: relative; 
-    @extend .sub-text;
     @include breakpoint(s) { margin-left: 31%; }
   }
 }
@@ -139,9 +138,9 @@ header[role=banner] {
   }
 
   div[role=main] {
-    padding-bottom: 1em;
+    padding-bottom: $defaultMargin;
     p, ul, ol, dl, table {
-      margin-bottom: 1em
+      margin-bottom: $defaultMargin;
     }
   }
 }
@@ -307,7 +306,7 @@ a .avatar:hover {border-color: $accent}
       }
       figure {
         float: right;
-        margin: 0 0 1em $gutter_width;
+        margin: 0 0 $defaultMargin $gutter;
       }
     }
     @include breakpoint(l) {
@@ -322,7 +321,7 @@ a .avatar:hover {border-color: $accent}
     article+article { 
       border-top: 2px solid $base_alt;
       margin-top: 1em;
-      h1, p { font-weight:normal }
+      h1, p { font-weight: normal }
       h1 { @extend .small-header }
       p { @extend .body-text }
     }
@@ -527,7 +526,7 @@ h2.overline {
       figure, p > img, figure >img {
         width:auto;
         float:right; clear:right;
-        margin: 0 0 1em $gutter_width;
+        margin: 0 0 $defaultMargin $gutter;
         max-width:320px; 
         @include breakpoint(m) {
           max-width:540px;
@@ -556,8 +555,9 @@ h2.overline {
 
     }
     .postcontrols {
-      position: absolute; right: 0; z-index: 100;
-      //.activated > span {width:auto}
+      position: absolute; 
+      right: 0; 
+      z-index: 100;
     }
     .post-voting {
       @include breakpoint(m) {

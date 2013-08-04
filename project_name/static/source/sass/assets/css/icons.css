@@ -1,0 +1,11 @@
+[class*="icon-"]:before { font-size: 110%; font-style: normal; speak: none; }
+
+.button[class*="icon-"] { padding: 0 0.5em; }
+
+.icon-home:before { content: "\2602"; }
+
+.icon-cog:before { content: "\2699"; }
+
+.icon-cw:before { content: "\27f3"; }
+
+.icon-location:before { content: "\2629"; }

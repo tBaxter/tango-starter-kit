@@ -1,6 +1,4 @@
 
-$accent       : #d56312;              // accent color.
-
 @import 'core/_vars.scss';
 @import 'core/_common.scss';
 
@@ -9,10 +7,7 @@ $accent       : #d56312;              // accent color.
 body { backgound-image: $texture; @include trans() }
 
 header[role=banner], 
-footer[role=contentinfo] { 
-  -moz-background-size: cover; 
-  background-size: cover;
-
+footer[role=contentinfo] {
   > div { 
     position:relative; 
     
@@ -49,7 +44,7 @@ header[role=banner] {
     @include radius($default_radius);
     @extend .pad-sides;
     border:1px solid transparent;
-    a {color: $base}
+    a { color: $base }
     &:hover {
       background: transparentize($base, .1);
       border-color: $base_alt;
@@ -68,31 +63,13 @@ header[role=banner] {
   @include breakpoint(s) {
     background-repeat: no-repeat;
   }
+  //@include breakpoint(2) {
+    //background-image: url(../img/grids/740.jpg);
+  //}
   //@include breakpoint(m) {
-    //background-image: url(http://media.kansascity.com/v3/img/grids/940.jpg);
+    //background-image: url(../img/grids/940.jpg);
   //}
   //@include breakpoint(l) {
-    //background-image: url(http://media.kansascity.com/v3/img/grids/1180.jpg);
+    //background-image: url(../img/grids/1180.jpg);
   //}
 }
-
-#herotext {
-  padding-right: $gutter_width;
-  @include breakpoint(l) { padding-right:20%; };
-  @include breakpoint(m) { padding-right:30%; };
-  @include breakpoint(s) { padding-right:40%; };
-}
-
-.sponsors {
-  font-size:.8em;
-  img {
-    background: #fff; 
-    border: 1px inset $base_alt;
-    padding: 3px;
-    max-width: 150px; 
-    @include radius(3px);
-    @include breakpoint(s) { width:60%; };
-  }
-}
-
-#footer {background-position: bottom right}

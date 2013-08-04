@@ -15,7 +15,7 @@
 **********************************************/
 
 // baseline
-$baseline: 10px;
+$baseline: 12px;
 $gutter: 20px;
 $halfGutter: $gutter/2;
 
@@ -29,35 +29,37 @@ html, button, input, select, textarea { font-family: $base_font }
 button, input, select, textarea { font-size: 100%; }
 
 html { 
-  font-size: .875em; // 14px
+  font-size: 1em; // 16px
   -webkit-text-size-adjust: 100%; 
       -ms-text-size-adjust: 100%; 
 }
 
 // Sizes are duplicated to support older browsers
 // that don't understand REMs. IE8, I'm looking at you.
+@mixin sub-text {
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+
 
 // Fine print and labels
 .small-text, small {
   font-size: 12px;
-  line-height: 15px;
+  line-height: 18px;
   font-size: 0.75rem;
-  line-height: 0.9375rem;
+  line-height: 1.125rem;
 }
 // slightly less important than default body text.
 .sub-text {
-  font-size: 13px;
-  font-size: 0.9285rem;
-  line-height: 20px;
-  line-height: 1.428rem;
+  @include sub-text;
 }
 
 // default body size: 14px;
 .body-text, body {
-  font-size: 14px;
+  font-size: 16px;
   font-size: 1em;
-  line-height: 20px;
-  line-height: 1.428rem;
+  line-height: 24px;
+  line-height: 1.5rem;
   
 }
 // H4-style headers
@@ -66,17 +68,17 @@ html {
   font-size: 1.142857rem;
 }
 .larger-line-height {
-  line-height: 30px;
-  line-height: 2.1426rem;
+  line-height: 36px;
+  line-height: 2.25rem;
 }
 .small-header, h4 {
   font-size: 18px;
-  font-size: 1.2857rem;
+  font-size: 1.125rem;
   @extend .larger-line-height;
 }
 
 // H3-style headers
-.medium-header, h3 {
+.medium-header, h3, .subhead {
   font-size: 21px;
   font-size: 1.2857rem;
   @extend .larger-line-height;
@@ -84,17 +86,17 @@ html {
 
 // H2-style headers
 .large-header, h2 {
-  font-size: 24px;
-  font-size: 1.7142rem;
+  font-size: 30px;
+  font-size: 1.875rem;
   @extend .larger-line-height;
 }
 
 // H1-style headers
 .xl-header, h1 {
-  font-size: 32px;
-  line-height: 40px;
-  font-size: 2.2857rem;
-  line-height: 2.8571rem;
+  font-size: 36px;
+  line-height: 48px;
+  font-size: 2.25rem;
+  line-height: 3rem;
 }
 
 // Large call-out headlines
@@ -191,6 +193,8 @@ label {
   @extend .small-header;
   text-transform: uppercase; 
 }
+
+small { display: inline-block }
 
 // set sidebar smaller by default
 [role=complementary] { @extend .sub-text; }

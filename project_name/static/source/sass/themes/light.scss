@@ -6,17 +6,7 @@
 header[role=banner], 
 footer[role=contentinfo] {
   background-color: #f7f7f7;
-  @include breakpoint(s) { background: #f7f7f7 url('/media/img/site/6120-bg-lite.jpg') no-repeat right; };
 
-  header h2, nav a { 
-    -webkit-text-stroke: 0;
-    text-shadow: 2px 2px 0 #fff, 1px 1px 5px #fff, 1px 1px 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 
-    0px 3px 1px rgba(0,0,0,0.1),
-                 3px 4px 1px rgba(0,0,0,0.05),
-                 -3px 4px 1px rgba(0,0,0,0.05);
-    filter:progid:DXImageTransform.Microsoft.Glow(Color=#fff,Strength=20);
-
-  }
   nav a:hover {color: #000}
-  .navicon:before {color:$inverse_alt}
+  .navicon:before {color: $inverse_alt}
 }
