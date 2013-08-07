@@ -59,6 +59,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 )
 
+LOGIN_URL = '/login/'
+
 INSTALLED_APPS += TANGO_APPS
 
 ROOT_URLCONF = '{{ project_name }}.urls'
