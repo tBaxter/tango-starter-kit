@@ -1,4 +1,4 @@
-<ul id="full-menu" role="menu" class="columned six-col">
+<ul role="menu">
   <li>
     <a href="{% url 'article_list' %}">News</a>
   </li>
@@ -16,7 +16,7 @@
   </li>
   {% if authenticated_request %}
     <li>
-      <a href="{% url 'edit_profile' %}" class="right icon-edit">
+      <a href="{% url 'edit_profile' %}" class="icon-edit">
         Edit
       </a>
       <a href="{% url 'view_profile' user.username %}">
