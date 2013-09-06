@@ -2,6 +2,8 @@
 @import 'core/_vars.scss';
 @import 'core/_common.scss';
 
+// Now override any vars you need to...
+// $accent: #A91616;
 
 // Insert custom site styles.
 body { backgound-image: $texture; @include trans() }
@@ -32,24 +34,20 @@ footer[role=contentinfo] {
 }
 
 header[role=banner] {
-  .site-name h1 { max-width:335px }
-  .site-name h2 { 
-    @extend .pad-top-bottom;
-    display: none;
-    @include breakpoint(s) {
-      display:block
-    }
-  }
+  @include box-shadow(0, 2px, 2px, .3);
+  @include gradient($accent, 10%, $texture); 
+
   [role=menu] > li {
     @include radius($default_radius);
     @extend .pad-sides;
-    border:1px solid transparent;
+    
+    border: 1px solid transparent;
     a { color: $base }
     &:hover {
       background: transparentize($base, .1);
       border-color: $base_alt;
 
-      a {color: $accent_alt}
+      a { color: $accent_alt }
     }
   }
 }
@@ -57,19 +55,10 @@ header[role=banner] {
 #content {
   div[role=main] > h1, 
   div[role=main] > article > h1, 
-  div[role=main] > header > h1,
-  #forum_categories h1 { @extend .super-text; }
+  div[role=main] > header > h1 { @extend .super-text; }
 
-  @include breakpoint(s) {
-    background-repeat: no-repeat;
-  }
-  //@include breakpoint(2) {
-    //background-image: url(../img/grids/740.jpg);
-  //}
-  //@include breakpoint(m) {
-    //background-image: url(../img/grids/940.jpg);
-  //}
-  //@include breakpoint(l) {
-    //background-image: url(../img/grids/1180.jpg);
-  //}
+  @include breakpoint(s) { background-repeat: no-repeat; }
+  //@include breakpoint(s) { background-image: url(../img/grids/740.jpg); }
+  //@include breakpoint(m) { background-image: url(../img/grids/940.jpg); }
+  //@include breakpoint(l) { background-image: url(../img/grids/1180.jpg); }
 }

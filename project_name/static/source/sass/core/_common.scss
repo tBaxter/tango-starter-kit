@@ -71,14 +71,6 @@ body.collapsed {
 
 // regular masthead styles.
 header[role=banner] { 
-  @include box-shadow(0, 2px, 2px, .3);
-  @include gradient($accent, 10%, $texture); 
-  top: 0; 
-  width: 100%; 
-  z-index: 100; 
-  padding: 10px 0; 
-  min-height: 60px;
-  border-bottom: 2px solid $accent; 
 
   &, * {
     @include trans(all, .3s, ease);
@@ -89,7 +81,6 @@ header[role=banner] {
   .site-name { 
     color: $inverse; 
     text-shadow: 0 1px 2px rgba(0,0,0,.7); 
-    padding-right: $gutter;
     @include breakpoint(xs) { padding-left: $gutter; }
 
     a { color: $base }
@@ -106,11 +97,6 @@ header[role=banner] {
     margin-right: $gutter;
     @include breakpoint(s) { padding: 0.5em auto; }
     &.activated { background: $accent_alt }
-  }
-  
-  nav {
-    position: relative; 
-    @include breakpoint(s) { margin-left: 31%; }
   }
 }
 

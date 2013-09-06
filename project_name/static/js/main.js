@@ -30,13 +30,11 @@ var screenSize = window.getComputedStyle(document.body, ':after').getPropertyVal
 // Reliably get window position.
 function getYOffset() {
   "use strict";
-  var pageY;
   if (typeof (window.pageYOffset) === 'number') {
-    pageY = window.pageYOffset;
+    return window.pageYOffset;
   } else {
-    pageY = document.documentElement.scrollTop;
+    return document.documentElement.scrollTop;
   }
-  return pageY;
 }
 
 /*************
@@ -216,10 +214,9 @@ $('#comment-list article.toxic header').each(function() {
   var $this = $(this);
   $this.append('<em class="note toxic-message">This comment has been collapsed</em>');
   $this.click(function(){
-    console.log('registered click');
-    var $parent = $(this).parent();
-    $parent.toggleClass('toxic');
-    //$parent.find('section').slideToggle('fast');
+    if (confirm('Are you sure you want to see this? It could get ugly.')) {
+      $(this).parent().toggleClass('toxic');
+    }
   });
 });
 
