@@ -24,8 +24,11 @@
       </a>
     </li>
   {% else %}
+    {% comment %}
+    Uncomment this (and modify signin.html) when you have your registration/login in place.
     <li>
       {% include "includes/signin.html" %}
     </li>
+    {% endcomment %}
   {% endif %}
 </ul>

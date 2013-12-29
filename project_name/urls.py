@@ -19,6 +19,18 @@ urlpatterns = patterns(
     url(r'^profiles/', include('user_profiles.urls')),
     url(r'^video/', include('video.urls')),
 
+    # VOTING
+    url(
+        name="generic_vote",
+        regex=r'^vote/(?P<model_name>[-\w]+)/(?P<object_id>\d+)/(?P<direction>up|down)vote/$',
+        view='voting.views.generic_vote_on_object'
+    ),
+
+    # Map these urls to appropriate login/logout views for your authentication system.
+    #url(r'^login/$',  auth_views.login, {'template_name': 'registration/login.html'}, name='auth_login'),
+    #url(r'^logout/$', auth_views.logout, {'template_name': 'registration/logout.html'}, name='auth_logout'),
+    
+    # This url is just to provide example typography and show the typographic grid.
     url(
         regex='^examples/typography/$',
         view=TemplateView.as_view(template_name='examples/typography.html'),

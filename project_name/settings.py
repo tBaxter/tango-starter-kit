@@ -111,9 +111,20 @@ TEMPLATE_DIRS = (
 )
 
 AUTH_USER_MODEL  = 'user_profiles.Profile'
-ALLOWABLE_THEMES = []
+
+
+# Themes are any themes defined in the css/themes/ directory. 
+# You can easily create your own themes simply by
+# adding the css file to the themes directory and including them here in ALLOWABLE_THEMES.
+# If no DEFAULT_THEME is specified, 'site.css' will be used.
+ALLOWABLE_THEMES = ['default', 'dark', 'light', 'vert'] 
 DEFAULT_THEME = None
-PAGINATE_BY = 25
+
+# Sets default pagination count (number of items per page)
+PAGINATE_BY = 25 
+
+# Set google analytics ID 
+# and Google maps key.
 GOOGLE_ANALYTICS_ID = ''  # Google analytics GA code
 GMAP_KEY = ''  # Google Maps Key
 
@@ -122,11 +133,13 @@ GMAP_KEY = ''  # Google Maps Key
 # If true, content will be limited to the current site.
 RESTRICT_CONTENT_TO_SITE = True
 
-# If set to true, additional fields news organizations
-# need will be added, including options to mark content as
+# If your site is a news source, give the name.
+# This will attach the name of your organization to articles
+# as well as add extra fields news organizations need,
+# including options to mark content as
 # opinion/editorial, dateline, and noting another source as
 # the origin of the content.
-NEWS_SOURCE = True
+NEWS_SOURCE = ''
 
 # Comment moderation settings
 COMMENTS_CLOSE_AFTER = 30  # Number of days after publication until comments close.
