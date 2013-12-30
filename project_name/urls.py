@@ -8,6 +8,11 @@ urlpatterns = patterns(
     '',
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='home'),
 
+    url(
+        regex=r'^admin/how-to/$',
+        view='tango_shared.views.build_howto',
+        name="admin_how_to"
+    ),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
 
