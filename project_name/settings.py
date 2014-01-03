@@ -118,7 +118,7 @@ AUTH_USER_MODEL  = 'user_profiles.Profile'
 # adding the css file to the themes directory and including them here in ALLOWABLE_THEMES.
 # If no DEFAULT_THEME is specified, 'site.css' will be used.
 ALLOWABLE_THEMES = ['default', 'dark', 'light', 'vert'] 
-DEFAULT_THEME = None
+DEFAULT_THEME = 'vert'
 
 # Sets default pagination count (number of items per page)
 PAGINATE_BY = 25 
