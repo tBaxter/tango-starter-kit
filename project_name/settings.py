@@ -77,8 +77,6 @@ ROOT_URLCONF = '{{ project_name }}.urls'
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '{{ secret_key }}'
 
-SITE_ID = 1
-
 TEMPLATE_DIRS = (
     PROJECT_DIR + '/templates'
 )
@@ -88,7 +86,6 @@ WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 ### AUTH SETTINGS
 ### https://docs.djangoproject.com/en/dev/ref/settings/#auth
-
 AUTH_USER_MODEL  = 'user_profiles.Profile'
 LOGIN_URL = '/login/'
 
@@ -106,22 +103,14 @@ STATIC_ROOT = '%s/collected_static/%s/' % (PARENT_DIR, PROJECT_NAME)
 STATICFILES_DIRS = (PROJECT_DIR + "/static/",)
 
 
-
-
-
-# Application definition
-
-
-
-
 ### ADDITIONAL TANGO/SITE SETTINGS YOU MAY WANT TO SET OR OVERRIDE
-### https://github.com/tBaxter/Tango
+### See https://github.com/tBaxter/Tango
 
-# Themes are any themes defined in the css/themes/ directory. 
+# Themes are any themes defined in the css/themes/ directory.
 # You can easily create your own themes simply by
 # adding the css file to the themes directory and including them here in ALLOWABLE_THEMES.
 # If no DEFAULT_THEME is specified, 'site.css' will be used.
-# ALLOWABLE_THEMES = ['default', 'dark', 'light', 'vert'] 
+# ALLOWABLE_THEMES = ['default', 'dark', 'light', 'vert']
 # DEFAULT_THEME = 'vert'
 
 # Google maps key and analytics GA code
@@ -136,7 +125,7 @@ STATICFILES_DIRS = (PROJECT_DIR + "/static/",)
 # the origin of the content.
 # NEWS_SOURCE = False
 
-# PAGINATE_BY = 25 
+# PAGINATE_BY = 25
 
 # if set to false, RESTRICT_CONTENT_TO_SITE will allow
 # sites/projects to share content.
@@ -144,11 +133,8 @@ STATICFILES_DIRS = (PROJECT_DIR + "/static/",)
 #RESTRICT_CONTENT_TO_SITE = True
 
 
-
 ### APP SETTINGS: Provides overrides or defaults to these apps
 
 # Comment moderation settings
 #COMMENTS_CLOSE_AFTER = 30  # Number of days after publication until comments close.
-#COMMENTS_MOD_AFTER = 15  # Number of days after publication until comments require moderation. 
-
-
+#COMMENTS_MOD_AFTER = 15  # Number of days after publication until comments require moderation.
