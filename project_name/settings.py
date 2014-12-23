@@ -78,7 +78,7 @@ ROOT_URLCONF = '{{ project_name }}.urls'
 SECRET_KEY = '{{ secret_key }}'
 
 TEMPLATE_DIRS = (
-    PROJECT_DIR + '/templates'
+    PROJECT_DIR + '/templates',
 )
 
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
