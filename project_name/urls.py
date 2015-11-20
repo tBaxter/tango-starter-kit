@@ -21,7 +21,9 @@ urlpatterns = patterns(
     url(r'^contact/', include('contact_manager.urls')),
     url(r'^photos/', include('photos.urls')),
     url(r'^events/', include('happenings.urls')),
-    url(r'^profiles/', include('user_profiles.urls')),
+    # Uncomment if you're using the tango_user app.
+    # Or just use your own profiles app.
+    # url(r'^profiles/', include('tango_user.urls')),
     url(r'^video/', include('video.urls')),
 
     # VOTING
@@ -32,9 +34,19 @@ urlpatterns = patterns(
     ),
 
     # Map these urls to appropriate login/logout views for your authentication system.
-    #url(r'^login/$',  auth_views.login, {'template_name': 'registration/login.html'}, name='auth_login'),
-    #url(r'^logout/$', auth_views.logout, {'template_name': 'registration/logout.html'}, name='auth_logout'),
-    
+    #url(
+    #    r'^login/$',
+    #    auth_views.login,
+    #    {'template_name': 'registration/login.html'},
+    #    name='auth_login'
+    #),
+    #url(
+    #    r'^logout/$',
+    #    auth_views.logout,
+    #    {'template_name': 'registration/logout.html'},
+    #    name='auth_logout'
+    #),
+
     # This url is just to provide example typography and show the typographic grid.
     url(
         regex='^examples/typography/$',

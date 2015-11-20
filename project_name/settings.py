@@ -18,8 +18,8 @@ from tango_shared.settings import *
 
 PROJECT_NAME = '{{ project_name }}'
 PROJECT_DIR = os.path.dirname(os.path.realpath(__file__))
-WEBAPP_DIR  = os.path.abspath(os.path.join(PROJECT_DIR, os.path.pardir))
-PARENT_DIR  = os.path.abspath(os.path.join(WEBAPP_DIR, os.path.pardir))
+WEBAPP_DIR = os.path.abspath(os.path.join(PROJECT_DIR, os.path.pardir))
+PARENT_DIR = os.path.abspath(os.path.join(WEBAPP_DIR, os.path.pardir))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -41,13 +41,17 @@ ALLOWED_HOSTS = []
 # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '{{ project_name }}/test_db',          # Or path to database file if using sqlite3.
+        # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.sqlite3',
+        # DB name, or path to database file if using sqlite3.
+        'NAME': '{{ project_name }}/test_db',
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
+        # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'HOST': '',
+        # Set to empty string for default.
+        'PORT': '',
     }
 }
 
@@ -66,6 +70,8 @@ INSTALLED_APPS = (
 )
 
 INSTALLED_APPS += TANGO_APPS
+# If you want a default user app:
+# INSTALLED_APPS += ('tango_users',)
 
 MANAGERS = ADMINS
 
@@ -86,7 +92,7 @@ WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 ### AUTH SETTINGS
 ### https://docs.djangoproject.com/en/dev/ref/settings/#auth
-AUTH_USER_MODEL  = 'user_profiles.Profile'
+AUTH_USER_MODEL = 'user_profiles.Profile'
 LOGIN_URL = '/login/'
 
 
