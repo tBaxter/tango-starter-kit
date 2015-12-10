@@ -60,7 +60,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'django.contrib.auth',
-    'django.contrib.comments',
     'django.contrib.contenttypes',
     'django.contrib.humanize',
     'django.contrib.sessions',
@@ -70,8 +69,16 @@ INSTALLED_APPS = (
 )
 
 INSTALLED_APPS += TANGO_APPS
+
+
 # If you want a default user app:
+# Remember to uncomment  AUTH_USER_MODEL, TOO
 # INSTALLED_APPS += ('tango_users',)
+
+### AUTH SETTINGS
+### https://docs.djangoproject.com/en/dev/ref/settings/#auth
+# AUTH_USER_MODEL = 'user_profiles.Profile'
+LOGIN_URL = '/login/'
 
 MANAGERS = ADMINS
 
@@ -89,16 +96,8 @@ TEMPLATE_DIRS = (
 
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
-
-### AUTH SETTINGS
-### https://docs.djangoproject.com/en/dev/ref/settings/#auth
-AUTH_USER_MODEL = 'user_profiles.Profile'
-LOGIN_URL = '/login/'
-
-
 ### Session Settings
 ### https://docs.djangoproject.com/en/dev/ref/settings/#sessions
-
 
 ### Sites Settings
 ### https://docs.djangoproject.com/en/dev/ref/settings/#sites

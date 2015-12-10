@@ -17,7 +17,7 @@ urlpatterns = patterns(
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^articles/', include('articles.urls.article_urls')),
-    url(r'^comments/', include('django.contrib.comments.urls')),
+    #url(r'^comments/', include('tango_comments.urls')),
     url(r'^contact/', include('contact_manager.urls')),
     url(r'^photos/', include('photos.urls')),
     url(r'^events/', include('happenings.urls')),
