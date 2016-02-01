@@ -24,7 +24,6 @@ PARENT_DIR = os.path.abspath(os.path.join(WEBAPP_DIR, os.path.pardir))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 if DEBUG is True:
-    TEMPLATE_DEBUG = True
     THUMBNAIL_DEBUG = True
     from tango_shared.debug_settings import *
 
