@@ -56,7 +56,6 @@ DATABASES = {
 }
 
 INSTALLED_APPS = (
-    'tango_shared',
     'django.contrib.admin',
     'django.contrib.admindocs',
     'django.contrib.auth',
@@ -89,10 +88,6 @@ ROOT_URLCONF = '{{ project_name }}.urls'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '{{ secret_key }}'
-
-TEMPLATE_DIRS = (
-    PROJECT_DIR + '/templates',
-)
 
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
