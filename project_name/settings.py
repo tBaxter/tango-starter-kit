@@ -81,7 +81,7 @@ LOGIN_URL = '/login/'
 MANAGERS = ADMINS
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
-MEDIA_ROOT = '%s/media/%s/' % (PARENT_DIR, PROJECT_NAME)
+MEDIA_ROOT = os.path.join(PARENT_DIR, 'media', PROJECT_NAME)
 
 ROOT_URLCONF = '{{ project_name }}.urls'
 
@@ -98,8 +98,8 @@ WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 SITE_ID = 1
 
 # https://docs.djangoproject.com/en/1.5/howto/static-files/
-STATIC_ROOT = '%s/collected_static/%s/' % (PARENT_DIR, PROJECT_NAME)
-STATICFILES_DIRS = (PROJECT_DIR + "/static/",)
+STATIC_ROOT = os.path.join(PARENT_DIR, '/collected_static/', PROJECT_NAME)
+STATICFILES_DIRS = (os.path.join(PROJECT_DIR, "/static/"),)
 
 
 ### ADDITIONAL TANGO/SITE SETTINGS YOU MAY WANT TO SET OR OVERRIDE
