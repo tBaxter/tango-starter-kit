@@ -101,6 +101,11 @@ SITE_ID = 1
 STATIC_ROOT = os.path.join(PARENT_DIR, '/collected_static/', PROJECT_NAME)
 STATICFILES_DIRS = (os.path.join(PROJECT_DIR, "/static/"),)
 
+# Append to existing tango settings.
+TEMPLATES[0]['DIRS'] = (
+    PROJECT_DIR + '/templates',
+    WEBAPP_DIR + '/shared/templates',
+)
 
 ### ADDITIONAL TANGO/SITE SETTINGS YOU MAY WANT TO SET OR OVERRIDE
 ### See https://github.com/tBaxter/Tango
