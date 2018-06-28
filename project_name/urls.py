@@ -4,7 +4,6 @@ from django.urls import include, path, re_path
 from django.views.generic import TemplateView
 
 from tango_shared.views import build_howto
-from voting.views import generic_vote_on_object
 
 admin.autodiscover()
 
@@ -25,7 +24,7 @@ urlpatterns = [
 
     re_path(
         route=r'^vote/(?P<model_name>[-\w]+)/(?P<object_id>\d+)/(?P<direction>up|down)vote/$',
-        view=generic_vote_on_object,
+        view='voting.views.generic_vote_on_object',
         name="generic_vote"
     ),
 
